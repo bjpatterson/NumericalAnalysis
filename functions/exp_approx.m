@@ -7,3 +7,9 @@ function [approx] = exp_approx (x, degree)
         curr_term *= x/(n+1);
     end
 end
+
+
+%!assert(exp_approx(1,0)==1)
+%!assert(exp_approx(1,-1)==0)
+%!assert(abs(exp_approx(1,20) - 2.71828) < .00001)
+%!assert(abs(exp_approx(2.3,25) - 9.974182) < .000001)
