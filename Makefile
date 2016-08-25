@@ -7,7 +7,7 @@ MATLAB?=matlab
 OCTAVE?=octave
 
 TESTDIR=$(CURDIR)/tests
-ROOTDIR=$(CURDIR)/functions
+ROOTDIR=$(CURDIR)/MOxUnit
 
 ADDPATH=orig_dir=pwd();cd('$(ROOTDIR)');moxunit_set_path();cd(orig_dir)
 RMPATH=rmpath('$(ROOTDIR)');
