@@ -18,7 +18,7 @@ function directories_added=moxunit_set_path()
 
     root_dir=fileparts(mfilename('fullpath'));
 
-    sub_dirs={'','util'};
+    sub_dirs={'','util','..','../functions'};
 
     % Cannot use moxunit_util_strjoin because it may not be in the path.
     % Instead construct the path to be added by adding the pathsep() after
