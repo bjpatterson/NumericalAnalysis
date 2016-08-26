@@ -6,6 +6,9 @@ function test_negative_degree
 
 function test_degree_zero
     assertEqual(exp_approx(1,0),1)
+    
+function test_low_order_correctness
+    assertEqual(exp_approx(1,2),2.5)
 
 function test_accuracy_of_e
     assertElementsAlmostEqual(exp_approx(1,25), 2.71828182845905)
