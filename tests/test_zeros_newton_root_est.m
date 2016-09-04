@@ -24,6 +24,3 @@ function test_relative_error
         assertTrue(abs(est-root) <= error)
         assertTrue(abs(est-root) > error^2) # not strictly true in all cases
     end
-    
-function test_fail
-    assertTrue(1 == 0)
