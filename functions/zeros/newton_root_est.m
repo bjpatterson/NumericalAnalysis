@@ -30,5 +30,6 @@ function [root_est] = newton_root_est (f, df, init_est, epsilon, max_iter)
     end
     
     display("The maximum allowed iteration was reached. Divergence is likely.")
+    newton_root_est = NaN;
     
 end

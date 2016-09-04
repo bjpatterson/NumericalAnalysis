@@ -18,6 +18,7 @@ function [root_est] = bisection_root_est (f, a, b, epsilon)
 
     if (f_at_a * f(b) > 0)
         display('Bad inputs!')
+        root_est = NaN;
         return
     end
     
