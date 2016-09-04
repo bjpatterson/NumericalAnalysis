@@ -11,4 +11,4 @@ function test_low_order_correctness
     assertEqual(sin_approx(1,3),5/6)
 
 function test_accuracy
-    assertElementsAlmostEqual(sin_approx(1,25), 0.841470984807897)
+    assertElementsAlmostEqual(sin_approx(1,25), sin(1))

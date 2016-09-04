@@ -6,13 +6,14 @@ function test_text_convergence
     
 function test_function_convergence
     assertElementsAlmostEqual(
-        bisection_root_est(@(y) .5 - sin(y)/y, -2, 0, 10^-8),
+        bisection_root_est(@(y) .5 - sin(y)/y, -2, -1, 10^-8),
         -1.8954942670339809471
     )
 
 function test_bad_inputs
+    display('(bad inputs expected):')
     assertEqual(bisection_root_est('x^2', 1, 2, .001), NaN)
-
+    
 function test_relative_error
     root = sqrt(2);
     for n = 1:10

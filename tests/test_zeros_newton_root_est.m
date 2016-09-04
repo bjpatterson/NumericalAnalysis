@@ -14,6 +14,7 @@ function test_function_convergence
     )
     
 function test_divergence
+    display('(divergence expected, may throw division by zero warning):')
     assertEqual(newton_root_est('x^2+1', '2*x', 1, .0001, 1000), NaN)
 
 function test_relative_error
