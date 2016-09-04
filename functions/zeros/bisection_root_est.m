@@ -7,7 +7,7 @@ function [root_est] = bisection_root_est (f, a, b, epsilon)
 # epsilon is the acceptable degree of error
 #
 # Usage examples:
-#     bisection_root_est(@(y) .5 - sin(y)/y, -2, 0, .00001)
+#     bisection_root_est(@(y) .5 - sin(y)/y, -2, -1, .00001)
 #     bisection_root_est('x^2-3', 1, 2, 10^-8)
 
     if(ischar(f))
