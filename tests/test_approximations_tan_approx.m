@@ -1,4 +1,4 @@
-function test_suite = test_tan_approx()
+function test_suite = test_approximations_tan_approx()
     initTestSuite;
 
 function test_negative_degree_crash

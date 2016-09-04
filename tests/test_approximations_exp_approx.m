@@ -1,4 +1,4 @@
-function test_suite = test_exp_approx()
+function test_suite = test_approximations_exp_approx()
     initTestSuite;
 
 function test_negative_degree

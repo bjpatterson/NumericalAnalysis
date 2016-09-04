@@ -1,4 +1,4 @@
-function test_suite = test_bisection_root_est()
+function test_suite = test_zeros_bisection_root_est()
     initTestSuite;
 
 function test_text_convergence

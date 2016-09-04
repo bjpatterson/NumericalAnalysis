@@ -1,4 +1,4 @@
-function test_suite = test_sin_approx()
+function test_suite = test_approximations_sin_approx()
     initTestSuite;
 
 function test_negative_degree

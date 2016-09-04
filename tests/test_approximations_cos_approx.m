@@ -1,4 +1,4 @@
-function test_suite = test_cos_approx()
+function test_suite = test_approximations_cos_approx()
     initTestSuite;
 
 function test_negative_degree
