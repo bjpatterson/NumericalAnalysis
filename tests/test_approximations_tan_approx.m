@@ -1,7 +1,8 @@
-function test_suite = test_tan_approx()
+function test_suite = test_approximations_tan_approx()
     initTestSuite;
 
 function test_negative_degree_crash
+    display('(division by zero warning expected):')
     assertEqual(tan_approx(1,-1),NaN)
 
 function test_degree_zero
@@ -13,5 +14,5 @@ function test_low_order_correctness
 function test_accuracy
     assertElementsAlmostEqual(
     tan_approx(1,25),
-    0.841470984807897/0.54030230586814
+    tan(1)
 )

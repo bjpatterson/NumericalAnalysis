@@ -1,4 +1,4 @@
-function test_suite = test_cos_approx()
+function test_suite = test_approximations_cos_approx()
     initTestSuite;
 
 function test_negative_degree
@@ -12,4 +12,4 @@ function test_low_order_correctness
 
 function test_accuracy
     assertElementsAlmostEqual(
-    cos_approx(1,25), 0.54030230586814)
+    cos_approx(1,25), cos(1))
