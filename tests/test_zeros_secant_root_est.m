@@ -31,4 +31,3 @@ function test_relative_error
     assertElementsAlmostEqual(list(1), 1)
     assertElementsAlmostEqual(list(2), 1.5)
     assertTrue(length(list) == 6)
-
