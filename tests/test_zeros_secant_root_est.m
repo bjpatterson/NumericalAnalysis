@@ -27,8 +27,8 @@ function test_relative_error
     end
 
     function test_successive_estimations
-    [ignore list] = secant_root_est(@(x)x^2-2, 1, 10^-8, 1000)
+    [ignore list] = secant_root_est(@(x)x^2-2, 1, 10^-8, 1000);
     assertElementsAlmostEqual(list(1), 1)
     assertElementsAlmostEqual(list(2), 1.5)
-    assertTrue(length(list) = 6)
+    assertTrue(length(list) == 6)
     
