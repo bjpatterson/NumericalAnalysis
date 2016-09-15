@@ -33,4 +33,4 @@ function test_successive_estimations
     assertElementsAlmostEqual(list(2), 1.5)
     assertElementsAlmostEqual(list(3), 17/12)
     assertTrue(length(list) == 5)
-    
+
