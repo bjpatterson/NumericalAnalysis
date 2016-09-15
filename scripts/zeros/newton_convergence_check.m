@@ -1,14 +1,15 @@
 # A script for checking the convergence of newton's method
-#  
 
+######## SET THESE ########
+check_simple_root = false;
 
-##### SET THESE #####
-f = @(x) x^2-3;
-df = @(x) 2*x;
+#f = @(x) x^2-3;
+#df = @(x) 2*x;
 
-#f = @(x) x*sin(x);
-#df = @(x) sin(x)+x*cos(x);
-#####################
+f = @(x) x*sin(x);
+df = @(x) sin(x)+x*cos(x);
+
+###########################
 
 [accurate_zero, estimates] = newton_root_est(f, df, .5, 10^-14, 1000);
 errors = estimates - accurate_zero;
@@ -25,10 +26,14 @@ end
 
 ##### CHOOSE WHICH PLOT TO GRAPH #####
 
-# If this is roughly constant, f(x) has multiplicity > 1
-# If this goes to 0, f(x) has multiplicity 1
-#plot(error_over_previous)
-
 # if this is roughly constant, f(x) has multiplicity 1
 # if this goes to infinity, f(x) has multiplicity > 1
-plot(error_over_previous_squared)
+if(check_simple_root)
+    plot(error_over_previous_squared)
+end
+
+# If this is roughly constant, f(x) has multiplicity > 1
+# If this goes to 0, f(x) has multiplicity 1
+if(!check_simple_root)
+    plot(error_over_previous)
+end
