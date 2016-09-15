@@ -25,3 +25,11 @@ function test_relative_error
         assertTrue(abs(est-root) <= error)
         assertTrue(abs(est-root) > error^2) # not strictly true in all cases
     end
+
+    
+function test_successive_estimations
+    [ignore list] = newton_root_est(@(x)x^2-2, @(x)2*x, 1, 10^-8, 1000);
+    assertElementsAlmostEqual(list(1), 1)
+    assertElementsAlmostEqual(list(2), 1.5)
+    assertElementsAlmostEqual(list(3), 17/12)
+    assertTrue(length(list) == 5)
