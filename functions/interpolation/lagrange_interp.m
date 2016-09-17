@@ -18,6 +18,9 @@ function [y_interp] = lagrange_interp (x_point, y_point, x_interp)
     elseif(!isrow(x_interp))
         display('ERROR: x_point must be either a scalar or a row vector')
         y_interp = NaN;
+    elseif(!length(x_point) == length(unique(x_point)))
+        display('ERROR: x_point cannot contain duplicate values!')
+        y_interp = NaN;
     else
         if(min(x_interp) < min(x_point) || max(x_interp) > max(x_point))
             display('WARNING: interpolation points lie outside the observed range')
