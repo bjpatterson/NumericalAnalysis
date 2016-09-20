@@ -16,7 +16,7 @@ function [Y_interp] = lagrange_interp (X, Y, X_interp)
         display('ERROR: X and Y must be row vectors of equal length')
         Y_interp = NaN;
     elseif(!isrow(X_interp))
-        display('ERROR: X must be either a scalar or a row vector')
+        display('ERROR: X_interp must be either a scalar or a row vector')
         Y_interp = NaN;
     elseif(!length(X) == length(unique(X)))
         display('ERROR: X cannot contain duplicate values!')
