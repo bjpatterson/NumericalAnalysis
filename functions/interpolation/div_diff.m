@@ -27,7 +27,7 @@ function [DDT] = div_diff (X, Y)
             for indx = 1:length(X)-deg+1 # iterates through the diagonal
                 r=indx;
                 c=indx+deg-1;
-                DDT(r, c) = (DDT(r+1,c) - DDT(r,c-1)) / (X(r) - X(c));
+                DDT(r, c) = (DDT(r+1,c) - DDT(r,c-1)) / (X(c) - X(r));
             end
         end        
     end
