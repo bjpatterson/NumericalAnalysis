@@ -1,27 +1,12 @@
-## Copyright (C) 2016 brand
-## 
-## This program is free software; you can redistribute it and/or modify it
-## under the terms of the GNU General Public License as published by
-## the Free Software Foundation; either version 3 of the License, or
-## (at your option) any later version.
-## 
-## This program is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU General Public License for more details.
-## 
-## You should have received a copy of the GNU General Public License
-## along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-## -*- texinfo -*- 
-## @deftypefn {Function File} {@var{retval} =} test_calculus_derivative_basic (@var{input1}, @var{input2})
-##
-## @seealso{}
-## @end deftypefn
-
-## Author: brand <brand@DESKTOP-I0KC6NC>
-## Created: 2016-10-13
-
-function [retval] = test_calculus_derivative_basic (input1, input2)
-
-endfunction
+function test_suite = test_calculus_derivative_basic ()
+    initTestSuite;
+    
+function test_no_crash
+    y = derivative_basic('x^2', 1);
+    y = derivative_basic(@(x)sin(x), 1);
+    y = derivative_basic('tan(x)/x^x', 2, .00001);
+    y = derivative_basic(@(x)x^x, 2, .00001);
+    
+function test_correctness
+    assertEqual(derivative_basic(@(x)x^2, 2, 1), 4)
+    assertAlmostEqual(derivative_basic('sin(x)',0),1)
