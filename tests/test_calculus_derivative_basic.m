@@ -9,4 +9,4 @@ function test_no_crash
     
 function test_correctness
     assertEqual(derivative_basic(@(x)x^2, 2, 1), 4)
-    assertAlmostEqual(derivative_basic('sin(x)',0),1)
+    assertElementsAlmostEqual(derivative_basic('sin(x)',0),1)
