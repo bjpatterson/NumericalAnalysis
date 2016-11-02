@@ -42,7 +42,7 @@ function [x, u_x] = integral_transform (v_y, K_xy, degree, n, eps = 0)
       weights(2:2:n) = 4/n/3;
       weights(3:2:n-1) = 2/n/3;
     otherwise
-      disp("integral_transform is defined for estimates of degree 1, 2, or 3 only!");
+      disp("integral_transform is defined for estimates of degree 0, 1, or 2 only!");
       x = u_x = NaN;
       return
   end
