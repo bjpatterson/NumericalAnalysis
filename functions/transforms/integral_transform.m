@@ -56,8 +56,9 @@ function [x, u_x] = integral_transform (v_y, K_xy, degree, n, eps = 0)
   A = filter(A);
   
   # if the matrix is sparse, convert it in an attempt to save computation time
-  #   (sparse defined as an n*n matrix with n*log2(n) or fewer nonzero elements)
-  if(nnz(A) <= n*log2(n))
+  #   (sparse defined as 5% or fewer nonzero elements)
+  if(nnz(A) <= (n+1)^2*.05)
+      disp("attempting to save time using a sparse matrix");
       A = sparse(A);
   end
   
