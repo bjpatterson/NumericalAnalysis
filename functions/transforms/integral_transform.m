@@ -52,7 +52,7 @@ function [x, u_x] = integral_transform (v_y, K_xy, degree, n, eps = 0)
   A = weights.*K;
   
   # filter out A < eps (doesn't appear to reduce calculation time)
-  filter = @(a) (a>=eps).*a;
+  filter = @(a) (abs(a)>=eps).*a;
   A = filter(A);
   
   # if the matrix is sparse, convert it in an attempt to save computation time
