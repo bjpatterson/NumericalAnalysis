@@ -26,21 +26,25 @@ function [x, u_x] = integral_transform (v_y, K_xy, degree, n, eps = 0)
   
   # determine point weights based on estimation degree
   weights = zeros(1, n+1);
+  common_factor = 1;
   switch (degree) 
     case 0
-      weights(:) = 1/(n+1);
+      weights(:) = 1;
+      common_factor = 1/(n+1);
     case 1
-      weights(1) = weights(n+1) = 1/n/2;
-      weights(2:n) = 1/n;
+      weights(1) = weights(n+1) = 1/2;
+      weights(2:n) = 1;
+      common_factor = 1/n;
     case 2
       if (mod(n,2) != 0)
         disp("degree 2 numeric integration must have an even number of partitions");
         x = u_x = NaN;
         return
       end
-      weights(1) = weights(n+1) = 1/n/3;
-      weights(2:2:n) = 4/n/3;
-      weights(3:2:n-1) = 2/n/3;
+      weights(1) = weights(n+1) = 1/3;
+      weights(2:2:n) = 4/3;
+      weights(3:2:n-1) = 2/3;
+      common_factor = 1/n;
     otherwise
       disp("integral_transform is defined for estimates of degree 0, 1, or 2 only!");
       x = u_x = NaN;
@@ -52,7 +56,7 @@ function [x, u_x] = integral_transform (v_y, K_xy, degree, n, eps = 0)
   A = weights.*K;
   
   # filter out A < eps (doesn't appear to reduce calculation time)
-  filter = @(a) (abs(a)>=eps).*a;
+  filter = @(a) (abs(a)>=eps/common_factor).*a;
   A = filter(A);
   
   # if the matrix is sparse, convert it in an attempt to save computation time
@@ -63,6 +67,6 @@ function [x, u_x] = integral_transform (v_y, K_xy, degree, n, eps = 0)
   end
   
   # solve the linear system Au = v
-  u_x = (linsolve(A, v'))';
+  u_x = (linsolve(A, v'./common_factor))';
   
 end
