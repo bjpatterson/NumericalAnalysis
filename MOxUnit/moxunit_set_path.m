@@ -26,6 +26,7 @@ function directories_added=moxunit_set_path()
         ,'../functions/approximations'
         ,'../functions/zeros'
         ,'../functions/interpolation'
+        ,'../functions/calculus'
       };
 
     % Cannot use moxunit_util_strjoin because it may not be in the path.
